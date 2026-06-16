@@ -1,0 +1,27 @@
+<!-- 마이페이지 -->
+
+<h2>마이페이지</h2>
+
+<p>
+    <strong><%= user.name %></strong>님 환영합니다.
+</p>
+
+<ul>
+    <li>
+        <a href="<%= baseUrl %>/mypage/orders">주문내역 보기</a>
+    </li>
+
+    <li>
+        <a href="<%= baseUrl %>/mypage/wishlist">위시리스트</a>
+    </li>
+
+    <li>
+        <a href="<%= baseUrl %>/mypage/info">내 정보 조회</a>
+    </li>
+
+    <li>
+        <a href="<%= baseUrl %>/mypage/delete">회원탈퇴</a>
+    </li>
+</ul>
+
+<a href="<%= baseUrl %>/">🏠 메인으로 돌아가기</a>

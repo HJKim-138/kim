@@ -1,0 +1,55 @@
+<!-- 위시리스트 조회 페이지 -->
+
+<h2>내 위시리스트</h2>
+
+<p>
+    <!-- 아래로 주문내역이 계속 추가되므로 상단에 위치 -->
+    <a href="<%= baseUrl %>/mypage">← 마이페이지로 돌아가기</a><br>
+</p>
+
+<% if (wishlistItems.length === 0) { %>
+    <!-- 위시리스트에 상품이 없을 때 출력 -->
+    <p>아직 위시리스트에 담긴 상품이 없습니다.</p>
+<% } else { %>
+
+    <!-- 위시리스트 상품 목록 출력 -->
+    <% wishlistItems.forEach(item => { %>
+        <div style="border: 1px solid #ccc; padding: 15px; margin-bottom: 15px;">
+            <p style="font-size: 24px;">
+                <%= item.emoji %>
+            </p>
+
+            <p>
+                <strong>상품명:</strong>
+                <%= item.name %>
+            </p>
+
+            <p>
+                <strong>상품 설명:</strong>
+                <%= item.description %>
+            </p>
+
+            <p>
+                <strong>가격:</strong>
+                <%= item.price.toLocaleString() %>원
+            </p>
+
+            <p>
+                <strong>찜한 날짜:</strong>
+                <%= item.created_at %>
+            </p>
+
+            <!-- 위시리스트에서 해당 상품 제거 -->
+            <form action="<%= baseUrl %>/wishlist/remove/<%= item.id %>" method="POST">
+                <button type="submit">위시리스트에서 삭제</button>
+            </form>
+
+            <!-- 위시리스트 상품을 바로 장바구니에 담기 -->
+            <form action="<%= baseUrl %>/cart/add" method="POST" style="margin-top: 8px;">
+                <input type="hidden" name="productId" value="<%= item.id %>">
+                <button type="submit">장바구니 담기</button>
+            </form>
+        </div>
+    <% }) %>
+
+<% } %>

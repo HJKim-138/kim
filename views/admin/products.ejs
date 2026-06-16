@@ -1,0 +1,55 @@
+<!-- 관리자 상품관리 화면 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>관리자 상품관리</title>
+</head>
+<body>
+<h1>관리자 상품관리</h1>
+
+<h2>상품 추가</h2>
+
+<form action="<%= baseUrl %>/admin/products/add" method="POST">
+    <input type="text" name="name" placeholder="상품명" required>
+    <input type="number" name="price" placeholder="가격" required>
+    <input type="text" name="description" placeholder="상품 설명">
+    <input type="text" name="image" placeholder="이미지 파일명 또는 URL">
+
+    <button type="submit">상품 추가</button>
+</form>
+
+<hr>
+
+<h2>상품 목록</h2>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>상품명</th>
+        <th>가격</th>
+        <th>설명</th>
+        <th>삭제</th>
+    </tr>
+
+    <% products.forEach(product => { %>
+        <tr>
+            <td><%= product.id %></td>
+            <td><%= product.name %></td>
+            <td><%= product.price %>원</td>
+            <td><%= product.description %></td>
+            <td>
+                <form action="<%= baseUrl %>/admin/products/delete/<%= product.id %>" method="POST">
+                    <button type="submit" onclick="return confirm('정말 삭제하시겠습니까?')">
+                        삭제
+                    </button>
+                </form>
+            </td>
+        </tr>
+    <% }) %>
+</table>
+
+<br>
+<a href="<%= baseUrl %>/admin">← 관리자 메인으로</a>
+</body>
+</html>

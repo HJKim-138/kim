@@ -1,0 +1,56 @@
+<!-- 주문서 작성 페이지 -->
+
+<h2>주문서 작성</h2>
+
+<h3>주문 상품</h3>
+
+<ul>
+    <% items.forEach(item => { %>
+        <li>
+            <%= item.name %>
+            (<%= item.quantity %>개)
+        </li>
+    <% }) %>
+</ul>
+
+<p>
+    총 금액 :
+    <%= totalPrice.toLocaleString() %>원
+</p>
+
+<form action="<%= baseUrl %>/order/create" method="POST">
+
+    <div>
+        <label>수령인</label>
+        <input
+                type="text"
+                name="receiver_name"
+                required
+        >
+    </div>
+
+    <div>
+        <label>전화번호</label>
+        <input
+                type="text"
+                name="receiver_phone"
+                required
+        >
+    </div>
+
+    <div>
+        <label>주소</label>
+        <input
+                type="text"
+                name="address"
+                required
+        >
+    </div>
+
+    <button type="submit">
+        주문 확정
+    </button>
+
+</form>
+
+<a href="<%= baseUrl %>/cart">← 이전 화면으로 돌아가기</a>

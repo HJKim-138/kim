@@ -1,0 +1,55 @@
+<!-- 주문내역 조회 페이지 -->
+
+<h2>내 주문내역</h2>
+
+<p>
+    <!-- 아래로 주문내역이 계속 추가되므로 상단에 위치 -->
+    <a href="<%= baseUrl %>/mypage">← 마이페이지로 돌아가기</a><br>
+</p>
+
+<% if (orders.length === 0) { %>
+    <!-- 주문 데이터가 없을 때 출력 -->
+    <p>아직 주문내역이 없습니다.</p>
+<% } else { %>
+
+    <!-- 주문내역 목록 출력 -->
+    <% orders.forEach(order => { %>
+        <div style="border: 1px solid #ccc; padding: 15px; margin-bottom: 15px;">
+            <p>
+                <strong>주문번호:</strong>
+                <%= order.id %>
+            </p>
+
+            <p>
+                <strong>수령인:</strong>
+                <%= order.receiver_name %>
+            </p>
+
+            <p>
+                <strong>전화번호:</strong>
+                <%= order.receiver_phone %>
+            </p>
+
+            <p>
+                <strong>배송지:</strong>
+                <%= order.address %>
+            </p>
+
+            <p>
+                <strong>총 금액:</strong>
+                <%= order.total_price.toLocaleString() %>원
+            </p>
+
+            <p>
+                <strong>주문 상태:</strong>
+                <%= order.status %>
+            </p>
+
+            <p>
+                <strong>주문일:</strong>
+                <%= order.created_at %>
+            </p>
+        </div>
+    <% }) %>
+
+<% } %>

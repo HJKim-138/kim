@@ -1,0 +1,17 @@
+<!-- 내 정보 조회 페이지-->
+
+<h2>내 정보</h2>
+
+<p>
+    <strong>아이디:</strong>
+    <%= user.username %>
+</p>
+
+<p>
+    <strong>이름:</strong>
+    <%= user.name %>
+</p>
+
+<a href="<%= baseUrl %>/mypage/edit">회원정보 수정</a>
+<br>
+<a href="<%= baseUrl %>/mypage">← 마이페이지로 돌아가기</a>

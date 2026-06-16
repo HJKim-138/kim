@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>재가입 성공</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 60px;
+        }
+        button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #facc15;
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<h2>재가입에 성공했습니다.</h2>
+
+<form action="<%= baseUrl %>/" method="GET">
+    <button type="submit">🏠 홈 화면으로 돌아가기</button>
+</form>
+</body>
+</html>

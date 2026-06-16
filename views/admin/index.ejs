@@ -1,0 +1,21 @@
+<!-- 관리자 메인 화면 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>관리자 페이지</title>
+</head>
+<body>
+<h1>관리자 페이지</h1>
+
+<ul>
+    <li><a href="<%= baseUrl %>/admin/products">상품관리</a></li>
+    <li><a href="<%= baseUrl %>/admin/orders">주문상태 관리</a></li>
+    <li><a href="<%= baseUrl %>/admin/users">회원 관리</a></li>
+</ul>
+
+<form action="<%= baseUrl %>/user/logout" method="GET">
+    <button type="submit">로그아웃 후 홈으로 돌아가기</button>
+</form>
+</body>
+</html>

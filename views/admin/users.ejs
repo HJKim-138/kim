@@ -1,0 +1,46 @@
+<!-- 관리자 회원 관리 화면 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>관리자 회원 관리</title>
+</head>
+<body>
+<h1>관리자 회원 관리</h1>
+
+<table border="1">
+    <tr>
+        <th>회원번호</th>
+        <th>아이디</th>
+        <th>이름</th>
+        <th>상태</th>
+        <th>관리자 여부</th>
+        <th>관리</th>
+    </tr>
+
+    <% users.forEach(user => { %>
+        <tr>
+            <td><%= user.id %></td>
+            <td><%= user.username %></td>
+            <td><%= user.name %></td>
+            <td><%= user.status %></td>
+            <td><%= user.is_admin === 1 ? '관리자' : '일반회원' %></td>
+            <td>
+                <% if (user.status === 'ACTIVE' && user.is_admin !== 1) { %>
+                    <form action="<%= baseUrl %>/admin/users/delete/<%= user.id %>" method="POST">
+                        <button type="submit" onclick="return confirm('정말 이 회원을 탈퇴 처리하시겠습니까?')">
+                            탈퇴 처리
+                        </button>
+                    </form>
+                <% } else { %>
+                    -
+                <% } %>
+            </td>
+        </tr>
+    <% }) %>
+</table>
+
+<br>
+<a href="<%= baseUrl %>/admin">← 관리자 메인으로</a>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!-- 회원탈퇴 페이지 -->
+
+<h2>회원탈퇴</h2>
+
+<p>
+    <strong><%= user.name %></strong>님, 정말 탈퇴하시겠습니까?
+</p>
+
+<p>
+    탈퇴 후에는 해당 계정으로 로그인할 수 없습니다.
+</p>
+
+<form action="<%= baseUrl %>/mypage/delete" method="POST">
+    <button type="submit">
+        회원탈퇴
+    </button>
+</form>
+
+<br>
+
+<a href="<%= baseUrl %>/mypage">← 마이페이지로 돌아가기</a>
